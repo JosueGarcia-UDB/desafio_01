@@ -7,7 +7,6 @@ import Information from "../components/Information"
 import FormularioCita from "../components/FormularioCita"
 import ResumenCitas from '../components/ResumenCitas';
 
-import "./globals.css"
 
 export default function Home() {
   const [citas, setCitas] = useState([]);
@@ -17,6 +16,7 @@ export default function Home() {
   };
 
   const cancelarCita = (index) => {
+    if(!confirm("¿Desea eliminar esta cita?")) return
     const nuevasCitas = [...citas];
     nuevasCitas.splice(index, 1);
     setCitas(nuevasCitas);

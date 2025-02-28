@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export const CardCitas = ({ icon, title, description, textButton, color, link }) => {
   return (
-    <div className={`card mb-3 shadow h-100 border-2 border-${color} bg-${color}-subtle rounded-4`}>
+    <article className={`card mb-3 shadow h-100 border-2 border-${color} bg-${color}-subtle rounded-4`}>
       <div className="card-body d-flex flex-column">
         <div className="d-flex align-items-center gap-2 mb-2">
           {icon}
@@ -13,7 +13,7 @@ export const CardCitas = ({ icon, title, description, textButton, color, link })
           <a href={`#${link}`} className={`btn btn-${color}`}>{textButton}</a>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 export default CardCitas;

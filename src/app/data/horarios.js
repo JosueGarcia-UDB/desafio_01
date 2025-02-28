@@ -1,7 +1,7 @@
 export const horarios = [
   { hora: "08:00", consultorio1: "Disponible", consultorio2: "Disponible" },
   { hora: "08:30", consultorio1: "Disponible", consultorio2: "Disponible" },
-  { hora: "09:00", consultorio1: "Disponible", consultorio2: "Ocupado" },
+  { hora: "09:00", consultorio1: "Disponible", consultorio2: "Disponible" },
   { hora: "09:30", consultorio1: "Disponible", consultorio2: "Disponible" },
   { hora: "10:00", consultorio1: "Disponible", consultorio2: "Disponible" },
   { hora: "10:30", consultorio1: "Disponible", consultorio2: "Disponible" },
