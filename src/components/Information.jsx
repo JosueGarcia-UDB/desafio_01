@@ -1,17 +1,15 @@
-import { IconCalendarWeek, IconClock12, IconHistory} from "@tabler/icons-react";
+import {
+  IconCalendarWeek,
+  IconClock12,
+  IconHistory,
+} from "@tabler/icons-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CardCitas from "../components/CardCitas";
 import { especialidades } from "@/app/data/especialidades";
 
 const Information = () => {
   return (
-    <section
-      id="inicio"
-      style={{
-        backgroundImage: "url(/images/background.png)",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h1 className="text-center text-primary mt-4 p-2">
           ¡Hola! Bienvenido a Dr. Rivera y Asociados
@@ -23,7 +21,10 @@ const Information = () => {
         </p>
       </div>
 
-      <div className="container d-grid gap-3 py-2" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+      <div
+        className="container d-grid gap-3 py-2"
+        style={{ gridTemplateColumns: "repeat(3,1fr)" }}
+      >
         <CardCitas
           color="warning"
           icon={<IconCalendarWeek size={35} />}
@@ -50,7 +51,9 @@ const Information = () => {
         />
       </div>
       <div className="container pt-5">
-        <h2 className="text-center text-primary-emphasis py-2">Nuestras especialidades</h2>
+        <h2 className="text-center text-primary-emphasis py-2">
+          Nuestras especialidades
+        </h2>
         <div className="row mb-3">
           {especialidades.map((especialidad) => (
             <div key={especialidad.id} className="col-md-3 p-2">
@@ -61,7 +64,7 @@ const Information = () => {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
