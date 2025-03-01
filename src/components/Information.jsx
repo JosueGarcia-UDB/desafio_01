@@ -1,4 +1,7 @@
-import { IconCalendarWeek, IconClock12, IconHistory,
+import {
+  IconCalendarWeek,
+  IconClock12,
+  IconHistory,
 } from "@tabler/icons-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CardCitas from "../components/CardCitas";
@@ -11,7 +14,7 @@ const Information = () => {
         <h1 className="text-center text-primary mt-4 p-2">
           ¡Hola! Bienvenido a Dr. Rivera y Asociados
         </h1>
-        <p className="fs-4 fw-light w-50 text-center">
+        <p className="fs-4 fw-light w-75 text-center">
           Sistema de gestión de citas médicas para nuestros dos consultorios.{" "}
           <strong>Reserve, administre y cancele</strong> sus citas de manera
           fácil y rápida.
@@ -20,7 +23,7 @@ const Information = () => {
 
       <div
         className="container d-grid gap-3 py-2"
-        style={{ gridTemplateColumns: "repeat(3,1fr)" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}
       >
         <CardCitas
           color="warning"

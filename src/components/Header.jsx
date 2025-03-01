@@ -3,45 +3,55 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <section className="shadow-sm border-bottom ">
+    <section className="shadow-sm border-bottom">
       <div className="container py-3">
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="d-flex justify-content-center align-items-center gap-3">
+        <div className="d-flex flex-wrap justify-content-between align-items-center">
+          {/* Logo */}
+          <div className="d-flex align-items-center gap-3">
             <Image src="/images/logo.svg" width={60} height={50} alt="logo" />
-            <h2 className="fw-bold text-primary">Dr. Rivera y Asociados</h2>
+            <h2 className="fw-bold text-primary m-0">Dr. Rivera y Asociados</h2>
           </div>
-          <nav className="navbar navbar-expand-lg">
+
+          {/* Menú */}
+          <nav className="navbar navbar-expand-lg navbar-light bg-white w-100 w-lg-auto mt-3 mt-lg-0">
             <div className="container-fluid">
+              {/* Botón de menú en móvil */}
               <button
                 className="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                  <a
-                    className="nav-link active fs-5 px-3 hover-primary"
-                    aria-current="page" 
-                    href="#inicio"
-                  >
-                    Inicio
-                  </a>
-                  <a className="nav-link fs-5 px-3 hover-primary fw-2" href="#disponibilidad">
-                    Disponibilidad
-                  </a>
-                  <a className="nav-link fs-5 px-3 hover-primary fw-2" href="#reservar-cita">
-                    Reservar Cita
-                  </a>
-                  <a className="nav-link fs-5 px-3 hover-primary fw-2" href="#mis-citas">
-                    Mis Citas
-                  </a>
-                </div>
+
+              {/* Menú */}
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto text-center">
+                  <li className="nav-item">
+                    <a className="nav-link active fs-5 fw-bold" href="#inicio">
+                      Inicio
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link fs-5" href="#disponibilidad">
+                      Disponibilidad
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link fs-5" href="#reservar-cita">
+                      Reservar Cita
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link fs-5" href="#mis-citas">
+                      Mis Citas
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </nav>
