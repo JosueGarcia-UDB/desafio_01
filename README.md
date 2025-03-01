@@ -6,6 +6,16 @@
 
 En este desafío Desarrolle una aplicación en React con Next.js, utilizando UseState para la gestión del estado y Bootstrap para la interfaz, que permita a los usuarios programar y administrar citas médicas en una clínica.
 
+### Comandos para ejecutar el proyecto
+`
+git clone https://github.com/JosueGarcia-UDB/desafio_01
+cd desafio_01/
+npm i
+npm run dev
+`
+💻 Abrir el proyecto en el localhost:3000
+
+---
 ### Lista de componentes realizados
 1. **CardCitas.jsx** -> Componente para las cardas que están dentro del componente Information.jsx 
 <p><img src="public/images/CardCitas.png" width=800/></p>
