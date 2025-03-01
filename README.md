@@ -8,11 +8,12 @@ En este desafío Desarrolle una aplicación en React con Next.js, utilizando Use
 
 ### Comandos para ejecutar el proyecto
 
-`git clone https://github.com/JosueGarcia-UDB/desafio_01`
-`cd desafio_01/`
-`npm i`
-`npm run dev`
-
+```bash
+git clone https://github.com/JosueGarcia-UDB/desafio_01
+cd desafio_01/
+npm i
+npm run dev
+```
 💻 Abrir el proyecto en el localhost:3000
 
 ---
