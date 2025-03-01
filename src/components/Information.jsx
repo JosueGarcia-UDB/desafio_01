@@ -1,7 +1,4 @@
-import {
-  IconCalendarWeek,
-  IconClock12,
-  IconHistory,
+import { IconCalendarWeek, IconClock12, IconHistory,
 } from "@tabler/icons-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CardCitas from "../components/CardCitas";

@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { horarios } from "../app/data/horarios";
 import { especialidades } from "../app/data/especialidades";
 
-const FormularioCita = ({ onAgregarCita }) => {
-  const [formData, setFormData] = useState({
+const FormularioCita = ({ onAgregarCita, horarios }) => {
+  const [datos, setDatos] = useState({
     nombre: "",
     telefono: "",
     correo: "",
@@ -16,8 +15,8 @@ const FormularioCita = ({ onAgregarCita }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setDatos({
+      ...datos,
       [name]: value,
     });
 
@@ -31,43 +30,44 @@ const FormularioCita = ({ onAgregarCita }) => {
   };
 
   const seleccionarHorario = (hora) => {
-    setFormData({
-      ...formData,
+    setDatos({
+      ...datos,
       horario: hora,
     });
   };
 
   const seleccionarConsultorio = (consultorio) => {
-    setFormData({
-      ...formData,
+    setDatos({
+      ...datos,
       consultorio,
       horario: null, // Resetear horario al cambiar consultorio
     });
   };
 
+  //Función para validar todos los campos del Formulario
   const validarFormulario = () => {
     const newErrors = {};
 
-    if (!formData.nombre.trim()) {
+    if (!datos.nombre.trim()) {
       newErrors.nombre = "El nombre es obligatorio";
     }
 
-    if (!formData.telefono.trim()) {
+    if (!datos.telefono.trim()) {
       newErrors.telefono = "El teléfono es obligatorio";
-    } else if (!/^\d{8}$/.test(formData.telefono)) {
-      newErrors.telefono = "Ingrese un número de teléfono válido (10 dígitos)";
+    } else if (!/^\d{8}$/.test(datos.telefono)) {
+      newErrors.telefono = "Ingrese un número de teléfono válido (8 dígitos)";
     }
 
-    if (!formData.correo.trim()) {
+    if (!datos.correo.trim()) {
       newErrors.correo = "El correo es obligatorio";
-    } else if (!/\S+@\S+\.\S+/.test(formData.correo)) {
+    } else if (!/\S+@\S+\.\S+/.test(datos.correo)) {
       newErrors.correo = "Ingrese un correo electrónico válido";
     }
-    if (!formData.especialidad) {
+    if (!datos.especialidad) {
       newErrors.especialidad = "Seleccione una especialidad";
     }
 
-    if (!formData.horario) {
+    if (!datos.horario) {
       newErrors.horario = "Seleccione un horario";
     }
     setErrors(newErrors);
@@ -77,10 +77,10 @@ const FormularioCita = ({ onAgregarCita }) => {
   const confirmarCita = () => {
     if (validarFormulario()) {
       if (typeof onAgregarCita === "function") {
-        onAgregarCita(formData);
+        onAgregarCita(datos);
 
         // Resetear el formulario
-        setFormData({
+        setDatos({
           nombre: "",
           telefono: "",
           correo: "",
@@ -96,9 +96,7 @@ const FormularioCita = ({ onAgregarCita }) => {
 
   // Filtrar horarios disponibles según el consultorio seleccionado
   const horariosDisponibles = horarios.filter(
-    (horario) =>
-      horario[
-        formData.consultorio === "Consultorio 1"
+    (horario) => horario[ datos.consultorio === "Consultorio 1"
           ? "consultorio1"
           : "consultorio2"
       ] !== "Ocupado"
@@ -112,7 +110,7 @@ const FormularioCita = ({ onAgregarCita }) => {
       <div className="row">
         {/* Columna de horarios - Lado izquierdo */}
         <div className="col-md-5 mb-4 mb-md-0">
-          <div className="p-4 border rounded h-100">
+          <div className="d-flex flex-column justify-content-between p-4 border rounded h-100">
             <h4 className="text-primary mb-3">Horarios Disponibles</h4>
 
             <div className="mb-3">
@@ -120,7 +118,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                 <button
                   type="button"
                   className={`btn ${
-                    formData.consultorio === "Consultorio 1"
+                    datos.consultorio === "Consultorio 1"
                       ? "btn-primary"
                       : "btn-light"
                   }`}
@@ -131,7 +129,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                 <button
                   type="button"
                   className={`btn ${
-                    formData.consultorio === "Consultorio 2"
+                    datos.consultorio === "Consultorio 2"
                       ? "btn-primary"
                       : "btn-light"
                   }`}
@@ -148,7 +146,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                   key={horario.hora}
                   type="button"
                   className={`btn m-1 ${
-                    formData.horario === horario.hora
+                    datos.horario === horario.hora
                       ? "btn-success"
                       : "btn-outline-primary"
                   }`}
@@ -188,7 +186,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                 className={`form-control ${errors.nombre ? "is-invalid" : ""}`}
                 id="nombre"
                 name="nombre"
-                value={formData.nombre}
+                value={datos.nombre}
                 onChange={handleInputChange}
                 placeholder="Ingrese su nombre completo"
               />
@@ -208,9 +206,9 @@ const FormularioCita = ({ onAgregarCita }) => {
                 }`}
                 id="telefono"
                 name="telefono"
-                value={formData.telefono}
+                value={datos.telefono}
                 onChange={handleInputChange}
-                placeholder="Ingrese su número de teléfono"
+                placeholder="Ingrese su número de teléfono, máximo 8 digitos"
               />
               {errors.telefono && (
                 <div className="invalid-feedback">{errors.telefono}</div>
@@ -226,7 +224,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                 className={`form-control ${errors.correo ? "is-invalid" : ""}`}
                 id="correo"
                 name="correo"
-                value={formData.correo}
+                value={datos.correo}
                 onChange={handleInputChange}
                 placeholder="Ingrese su correo electrónico"
               />
@@ -245,7 +243,7 @@ const FormularioCita = ({ onAgregarCita }) => {
                 className={`form-select ${
                   errors.especialidad ? "is-invalid" : ""
                 }`}
-                value={formData.especialidad}
+                value={datos.especialidad}
                 onChange={handleInputChange}
               >
                 <option value="">Seleccione una especialidad</option>

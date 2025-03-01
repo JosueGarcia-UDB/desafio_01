@@ -18,7 +18,7 @@ const ResumenCitas = ({ citas, onCancelarCita }) => {
         <h2 className="text-primary-emphasis my-3 text-center">Mis Citas</h2>
         <div className="table-responsive">
           <table className="table table-hover">
-            <thead className="table-light">
+            <thead className="table-primary">
               <tr>
                 <th>Nombre</th>
                 <th>Especialidad</th>

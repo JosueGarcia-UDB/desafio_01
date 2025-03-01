@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import { horarios } from "../app/data/horarios";
 
-const ListaHorarios = () => {
+const ListaHorarios = ({ horarios }) => {
   const [consultorioSeleccionado, setConsultorioSeleccionado] =
     useState("consultorio1");
 
