@@ -13,7 +13,7 @@ const Header = () => {
           </div>
 
           {/* Menú */}
-          <nav className="navbar navbar-expand-lg navbar-light bg-white w-100 w-lg-auto mt-3 mt-lg-0">
+          <nav className="navbar navbar-expand-lg navbar-light bg-white mt-3 mt-lg-0">
             <div className="container-fluid">
               {/* Botón de menú en móvil */}
               <button
